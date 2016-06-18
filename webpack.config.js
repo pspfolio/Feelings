@@ -9,6 +9,9 @@ module.exports = {
 		  loader: 'babel'
 		}]
   },
+  resolve: {
+	extensions: ['', '.js'],
+  },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
