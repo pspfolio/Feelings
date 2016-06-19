@@ -36151,10 +36151,10 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	var AppComponent = {
-	    template: "\n    <h1>\n        Hello world\n    </h1>"
+		template: "\n    <h1>\n        Header\n    </h1>\n\t<div>\n\t\t<div ui-view></div>\n\t</div>\n\t<h3>\n\t\tFooter\n\t</h3>\n"
 	};
 
 	exports.default = AppComponent;

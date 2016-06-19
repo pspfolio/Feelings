@@ -1,3 +1,4 @@
+var path = require("path");
 module.exports = {
   entry: [
     './app/app.js'
@@ -13,11 +14,11 @@ module.exports = {
 	extensions: ['', '.js'],
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './'
   }
 };
