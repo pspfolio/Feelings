@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -36154,7 +36154,7 @@
 		value: true
 	});
 	var AppComponent = {
-		template: "\n    <h1>\n        Header\n    </h1>\n\t<div>\n\t\t<div ui-view></div>\n\t</div>\n\t<h2>\n\t\tFooterrrr\n\t</h2>\n"
+		template: "\n    <h1>\n        Header\n    </h1>\n\t<div>\n\t\t<div ui-view></div>\n\t</div>\n\t<h2>\n\t\tFooaaassssqqq\n\t</h2>\n"
 	};
 
 	exports.default = AppComponent;
