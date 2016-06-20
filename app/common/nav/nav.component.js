@@ -7,7 +7,6 @@ const NavigationComponent = {
         <nav>
     `,
     transclude: true
-
 };
 
 export default NavigationComponent;

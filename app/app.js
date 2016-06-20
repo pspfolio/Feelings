@@ -2,7 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import AppComponent from './app.component';
 import Common from './common/common';
-/* import Components and Common */
+/* import Components */
 
 const root = angular
 		.module('app', [

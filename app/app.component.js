@@ -6,9 +6,7 @@ const AppComponent = {
 	<div>
 		<div ui-view></div>
 	</div>
-	<h3>
-		Footer
-	</h3>
+	<footer></footer>
 `
 };
 
