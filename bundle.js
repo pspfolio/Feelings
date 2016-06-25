@@ -73,7 +73,7 @@
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _common = __webpack_require__(8);
+	var _common = __webpack_require__(15);
 
 	var _common2 = _interopRequireDefault(_common);
 
@@ -39314,9 +39314,21 @@
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
+	var _auth = __webpack_require__(8);
+
+	var _auth2 = _interopRequireDefault(_auth);
+
+	var _authKeyboard = __webpack_require__(10);
+
+	var _authKeyboard2 = _interopRequireDefault(_authKeyboard);
+
+	var _authNumbers = __webpack_require__(13);
+
+	var _authNumbers2 = _interopRequireDefault(_authNumbers);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var auth = _angular2.default.module('auth', [_angularUiRouter2.default]).component('auth', AuthComponent).config(function ($stateProvider, $urlRouterProvider) {
+	var auth = _angular2.default.module('auth', [_angularUiRouter2.default, _authKeyboard2.default, _authNumbers2.default]).component('auth', _auth2.default).config(function ($stateProvider, $urlRouterProvider) {
 	    $stateProvider.state('auth', {
 	        url: '/auth',
 	        component: 'auth'
@@ -39336,28 +39348,73 @@
 	    value: true
 	});
 
-	var _angular = __webpack_require__(2);
+	var _auth = __webpack_require__(9);
 
-	var _angular2 = _interopRequireDefault(_angular);
-
-	var _nav = __webpack_require__(9);
-
-	var _nav2 = _interopRequireDefault(_nav);
-
-	var _footer = __webpack_require__(11);
-
-	var _footer2 = _interopRequireDefault(_footer);
+	var _auth2 = _interopRequireDefault(_auth);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//import Footer from '/footer';
+	var AuthComponent = {
+	    controller: _auth2.default,
+	    template: '\n        <div class="auth">\n            <auth-numbers></auth-numbers>\n            <auth-keyboard \n                keys="$ctrl.nums"\n                on-num-clicked="$ctrl.numClicked($event);">\n            </auth-keyboard>\n        </div>\n    '
+	};
 
-	var common = _angular2.default.module('app.common', [_nav2.default, _footer2.default]).name;
-
-	exports.default = common;
+	exports.default = AuthComponent;
 
 /***/ },
 /* 9 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var AuthController = function () {
+	    function AuthController() {
+	        // Init authService here 
+
+	        _classCallCheck(this, AuthController);
+	    }
+
+	    _createClass(AuthController, [{
+	        key: "$onInit",
+	        value: function $onInit() {
+	            this.nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+	            this.userNums = [];
+	        }
+	    }, {
+	        key: "numClicked",
+	        value: function numClicked(_ref) {
+	            var num = _ref.num;
+
+	            console.log("statefull num", num);
+	            this.userNums.push(num);
+	            if (this.userNums.length === 4) this.authUser();
+	        }
+	    }, {
+	        key: "authUser",
+	        value: function authUser() {
+	            console.log('authuser');
+	            console.log(this.userNums);
+	            // service call with userNums
+	            // if user found. Redirect to feeling component
+	            // challenge... how to transfer userId to other component
+	        }
+	    }]);
+
+	    return AuthController;
+	}();
+
+	exports.default = AuthController;
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39370,7 +39427,163 @@
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _nav = __webpack_require__(10);
+	var _authKeyboard = __webpack_require__(11);
+
+	var _authKeyboard2 = _interopRequireDefault(_authKeyboard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var authKeyboard = _angular2.default.module('authKeyboard', []).component('authKeyboard', _authKeyboard2.default).name;
+
+	exports.default = authKeyboard;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _authKeyboard = __webpack_require__(12);
+
+	var _authKeyboard2 = _interopRequireDefault(_authKeyboard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthKeyboardComponent = {
+	    bindings: {
+	        keys: '<',
+	        onNumClicked: '&'
+	    },
+	    controller: _authKeyboard2.default,
+	    template: '\n        <div class="keyboard">\n            <div class="number" ng-repeat="key in $ctrl.keys">\n                <span ng-click="$ctrl.numClicked(key);" class="num" ng-bind="key"></span>\n            </div>\n        </div>\n    '
+	};
+
+	exports.default = AuthKeyboardComponent;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var AuthKeyboardController = function () {
+	    function AuthKeyboardController() {
+	        _classCallCheck(this, AuthKeyboardController);
+	    }
+
+	    _createClass(AuthKeyboardController, [{
+	        key: "numClicked",
+	        value: function numClicked(num) {
+	            this.onNumClicked({
+	                $event: {
+	                    num: num
+	                }
+	            });
+	        }
+	    }]);
+
+	    return AuthKeyboardController;
+	}();
+
+	exports.default = AuthKeyboardController;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _angular = __webpack_require__(2);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _authNumbersComponent = __webpack_require__(14);
+
+	var _authNumbersComponent2 = _interopRequireDefault(_authNumbersComponent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthNumbers = _angular2.default.module('authNumbers', []).component('authNumbers', AuthNumbers).name;
+
+	exports.default = AuthNumbers;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var AuthNumberComponent = {
+	    template: "\n        <h3>Numbers</h3>\n    "
+	};
+
+	exports.default = AuthNumberComponent;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _angular = __webpack_require__(2);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _nav = __webpack_require__(16);
+
+	var _nav2 = _interopRequireDefault(_nav);
+
+	var _footer = __webpack_require__(18);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import Footer from '/footer';
+
+	var common = _angular2.default.module('app.common', [_nav2.default, _footer2.default]).name;
+
+	exports.default = common;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _angular = __webpack_require__(2);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _nav = __webpack_require__(17);
 
 	var _nav2 = _interopRequireDefault(_nav);
 
@@ -39381,7 +39594,7 @@
 	exports.default = navigation;
 
 /***/ },
-/* 10 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39404,7 +39617,7 @@
 	exports.default = NavigationComponent;
 
 /***/ },
-/* 11 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39417,7 +39630,7 @@
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _footer = __webpack_require__(12);
+	var _footer = __webpack_require__(19);
 
 	var _footer2 = _interopRequireDefault(_footer);
 
@@ -39428,7 +39641,7 @@
 	exports.default = footer;
 
 /***/ },
-/* 12 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

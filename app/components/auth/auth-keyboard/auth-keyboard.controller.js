@@ -10,6 +10,4 @@ class AuthKeyboardController {
     }
 }
 
-AuthKeyboardController.$inject = ['EventEmitter'];
-
 export default AuthKeyboardController;
