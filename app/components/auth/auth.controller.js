@@ -6,12 +6,14 @@ class AuthController {
 
     $onInit() {
         this.nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-        this.userNums = [];
+        this.userNums = [3, 4];
     }
 
     numClicked({num}) {
-        console.log("statefull num", num);
-        this.userNums.push(num);
+        // Creating new array, to make $watch dirty.
+        // This ways number component $onChanges will work
+        this.userNums = this.userNums.concat([num]);
+        console.log(this.userNums);
         if(this.userNums.length === 4) this.authUser();
     }
 
