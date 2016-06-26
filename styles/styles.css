@@ -1,0 +1,53 @@
+body {
+    background-color: #004e66;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.clearfix:before, .clearfix:after {
+    content : " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+    NAVIGATION
+*/
+
+nav .company {
+    margin: 2em 0 0 2em;
+} 
+
+nav .company-logo {
+    max-width: 3em;
+    max-height: 3em;
+    margin-top: .5em;
+    float: left;
+}
+
+nav .company-name {
+    float: left;
+    margin: .5em 0 0 .5em;
+    font-size: 2em;
+    font-weight: 300;
+    color: white;
+}
+
+/*
+    AUTH
+*/
+
+.auth {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.auth .passcode {
+    color: white;
+    font-weight: 300;
+    font-size: 2em;
+    margin: 0;
+}

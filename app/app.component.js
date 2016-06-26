@@ -1,7 +1,7 @@
 const AppComponent = {
 	template: `
 	<navigation>
-		Feelings
+		Microsoft
 	</navigation>
 	<div>
 		<div ui-view></div>
