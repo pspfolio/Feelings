@@ -59,9 +59,9 @@ nav .company-name {
     display: inline-block;
 }
 
-.numbers .number {
+.numbers .passcodenumber {
     display: inline-block;
-    padding: .1em .3em;
+    padding: 0 .3em;
     margin: 0 .3em;
     border-bottom: 2px solid white;
 }
