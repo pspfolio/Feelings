@@ -66,15 +66,27 @@ body {
 }
 
 .keyboard {
-    width: 50%;
-    margin: 0 auto;
+    width: 25%;
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .keyboard .number {
+    height: 75px;
+    flex: 1 1 5%;
+    margin: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyboard .num {
+    color: white;
+    padding: .5em .8em;
+    font-size: 2em;
+    font-weight: 400;
     border: 2px solid white;
     border-radius: 5px;
-    width: 10%;
-    height: 50px;
-    margin: 25px;
-    display: inline-block;
 }
