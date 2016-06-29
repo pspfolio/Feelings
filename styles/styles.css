@@ -20,7 +20,6 @@ body {
     display: flex;
     align-items: center;
     margin: 2em 0 0 2em;
-    border: 2px solid goldenrod;
 }
 
 .nav-flex .company-logo {
@@ -55,12 +54,12 @@ body {
 .numbers {
     color: white;
     font-size: 3em;
+    display: flex;
+    justify-content: center;
     margin-top: 1em;
-    display: inline-block;
 }
 
 .numbers .passcodenumber {
-    display: inline-block;
     padding: 0 .3em;
     margin: 0 .3em;
     border-bottom: 2px solid white;
