@@ -65,3 +65,17 @@ nav .company-name {
     margin: 0 .3em;
     border-bottom: 2px solid white;
 }
+
+.keyboard {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.keyboard .number {
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 10%;
+    height: 50px;
+    margin: 25px;
+    display: inline-block;
+}
