@@ -16,23 +16,23 @@ body {
     NAVIGATION
 */
 
-nav .company {
+.nav-flex {
+    display: flex;
+    align-items: center;
     margin: 2em 0 0 2em;
-} 
-
-nav .company-logo {
-    max-width: 3em;
-    max-height: 3em;
-    margin-top: .5em;
-    float: left;
 }
 
-nav .company-name {
-    float: left;
-    margin: .5em 0 0 .5em;
+.nav-flex .company-logo {
+    max-width: 3em;
+    max-height: 3em;
+}
+
+.nav-flex .company-name {
     font-size: 2em;
     font-weight: 300;
     color: white;
+    margin-left: .5em;
+    flex: 1 1 50;
 }
 
 /*

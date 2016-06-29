@@ -2,8 +2,8 @@ import angular from 'angular';
 
 const NavigationComponent = {
     template: `
-        <nav class="clearfix">
-            <div class="company">
+        <nav>
+            <div class="company nav-flex"">
                 <img class="company-logo" src="./images/Microsoft_logo.png" alt="logo" />
                 <h1 class="company-name" ng-transclude></h1>
             </div>
