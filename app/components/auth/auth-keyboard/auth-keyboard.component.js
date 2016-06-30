@@ -8,7 +8,7 @@ const AuthKeyboardComponent = {
     controller: controller,
     template: `
         <div class="keyboard">
-            <div class="number" ng-repeat="key in $ctrl.keys">
+            <div class="number" ng-repeat="key in $ctrl.keys" track by key>
                 <span ng-click="$ctrl.numClicked(key);" class="num" ng-bind="key"></span>
             </div>
         </div>
