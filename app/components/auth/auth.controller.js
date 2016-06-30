@@ -12,6 +12,7 @@ class AuthController {
     numClicked({num}) {
         // Creating new array, to make $watch dirty.
         // This ways number component $onChanges will work
+        if(!num) return;
         this.userNums = this.userNums.concat([num]);
         if(this.userNums.length === 4) this.authUser();
     }

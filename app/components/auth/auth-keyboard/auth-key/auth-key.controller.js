@@ -1,7 +1,7 @@
+class AuthKeyController {
 
-class AuthKeyboardController {
     numClicked(nums) {
-        this.onNumClicked({
+        this.onNumClick({
             $event: {
                 num: nums
             }
@@ -9,4 +9,4 @@ class AuthKeyboardController {
     }
 }
 
-export default AuthKeyboardController;
+export default AuthKeyController;
