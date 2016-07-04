@@ -1,7 +1,8 @@
 class AuthController {
 
-    constructor() {
-      // Init authService here  
+    constructor(AuthService) {
+      this.authService = AuthService;
+      console.log(this.authService);
     }
 
     $onInit() {
@@ -19,7 +20,7 @@ class AuthController {
 
     authUser() {
         console.log('authuser');
-        console.log(this.userNums);
+        this.authService.verifyUserId(this.userNums.join(''));
         // service call with userNums
         // if user found. Redirect to feeling component
         // challenge... how to transfer userId to other component
@@ -27,4 +28,5 @@ class AuthController {
 
 }
 
+AuthController.$inject = ['AuthService'];
 export default AuthController;
