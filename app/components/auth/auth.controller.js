@@ -2,7 +2,6 @@ class AuthController {
 
     constructor(AuthService) {
       this.authService = AuthService;
-      console.log(this.authService);
     }
 
     $onInit() {
@@ -25,7 +24,6 @@ class AuthController {
             this.userNotFound = "User not found. Please try again";
             this.userNums = [];
         }
-        // service call with userNums
         // if user found. Redirect to feeling component
         // challenge... how to transfer userId to other component
     }
