@@ -8,6 +8,7 @@ class AuthService  {
         // get $http from servcie
         var users = this.getUserIds();
         var result = users.indexOf(userId) > -1;
+        
         return result;
     }
 

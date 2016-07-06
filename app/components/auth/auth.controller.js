@@ -14,14 +14,12 @@ class AuthController {
         // Creating new array, to make $watch dirty.
         // This ways number component $onChanges will work
         if(!num) return;
-        this.userNums = this.userNums.concat([num]);
+        this.userNums = this.userNums.concat([num.num]);
         if(this.userNums.length === 4) this.authUser();
     }
 
     authUser() {
-        console.log('authuser');
-        var result = this.authService.verifyUserId(this.userNums.join(''));
-        console.log(result);
+        var result = this.authService.verifyUserId(+this.userNums.join(''));
         
         if(!result) {
             this.userNotFound = "User not found. Please try again";
