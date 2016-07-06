@@ -10,6 +10,7 @@ const AuthComponent = {
                 keys="$ctrl.nums"
                 on-num-clicked="$ctrl.numClicked($event);">
             </auth-keyboard>
+            <p ng-bind="$ctrl.userNotFound"></p>
         </div>
     `
 };

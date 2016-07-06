@@ -6,10 +6,8 @@ class AuthService  {
 
     verifyUserId(userId) {
         // get $http from servcie
-        console.log("service verifying", userId);
         var users = this.getUserIds();
         var result = users.indexOf(userId) > -1;
-        console.log(result);
         return result;
     }
 

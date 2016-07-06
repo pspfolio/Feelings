@@ -20,7 +20,13 @@ class AuthController {
 
     authUser() {
         console.log('authuser');
-        this.authService.verifyUserId(this.userNums.join(''));
+        var result = this.authService.verifyUserId(this.userNums.join(''));
+        console.log(result);
+        
+        if(!result) {
+            this.userNotFound = "User not found. Please try again";
+            this.userNums = [];
+        }
         // service call with userNums
         // if user found. Redirect to feeling component
         // challenge... how to transfer userId to other component
